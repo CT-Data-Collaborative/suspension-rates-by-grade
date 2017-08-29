@@ -4,7 +4,7 @@ Suspension Rates by Grade
 
 Suspension Rates by Grade reports the percentage of students receiving at least one sanction (ISS, OSS, EXP) by grade.
 
-Data Source: <http://edsight.ct.gov/SASPortal/main.do>
+Data Source: <http://edsight.ct.gov/SASPortal/main.do> 
 
 ## License MIT
 
