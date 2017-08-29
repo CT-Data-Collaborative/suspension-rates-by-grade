@@ -2,7 +2,7 @@ import pytest
 
 ##################################################################
 #
-# Basic testing script for Suspension Rate by Grade Range
+# Basic testing script for Suspension Rates by Grade
 # Created by Jenna Daly
 # On 08/23/2017
 #
