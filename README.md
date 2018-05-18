@@ -1,7 +1,5 @@
 Suspension Rates by Grade
 
-[![Build Status](https://travis-ci.org/CT-Data-Collaborative/suspension-rates-by-grade.svg?branch=master)](https://travis-ci.org/CT-Data-Collaborative/suspension-rates-by-grade)
-
 Suspension Rates by Grade reports the percentage of students receiving at least one sanction (ISS, OSS, EXP) by grade.
 
 Data Source: <http://edsight.ct.gov/SASPortal/main.do> 

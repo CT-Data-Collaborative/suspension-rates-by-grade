@@ -11,10 +11,11 @@ library(datapkg)
 
 #Setup environment
 sub_folders <- list.files()
-raw_location <- grep("raw", sub_folders, value=T)
-path_to_raw_data <- (paste0(getwd(), "/", raw_location))
+data_location <- grep("Grade", sub_folders, value=T)
+path_to_top_level <- (paste0(getwd(), "/", data_location))
+path_to_raw_data <- (paste0(getwd(), "/", data_location, "/", "raw"))
 all_csvs <- dir(path_to_raw_data, recursive=T, pattern = ".csv") 
-all_state_csvs <- grep("ct", all_csvs, value=T) 
+all_state_csvs <- dir(path_to_raw_data, recursive=T, pattern = "ct.csv") 
 all_dist_csvs <- all_csvs[!all_csvs %in% all_state_csvs]
 
 #Bring in district level suspension rates
@@ -71,7 +72,8 @@ years <- c("2009-2010",
            "2012-2013",
            "2013-2014",
            "2014-2015",
-           "2015-2016")
+           "2015-2016", 
+           "2016-2017")
 
 grade <- c("K", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 
@@ -141,7 +143,7 @@ complete_susp_rates_long <- complete_susp_rates_long %>%
 # Write to File
 write.table(
   complete_susp_rates_long,
-  file.path(getwd(), "data", "suspension_rates_by_grade_2016.csv"),
+  file.path(path_to_top_level, "data", "suspension_rates_by_grade_2017.csv"),
   sep = ",",
   row.names = F
 )

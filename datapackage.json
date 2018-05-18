@@ -2,7 +2,7 @@
   "name": "suspension-rates-by-grade",
   "datapackage_version": "1.0-beta.18",
   "title": "Suspension Rates by Grade",
-  "description": "Suspension Rates by Grade reports the percentage of students receiving at least one sanction (ISS, OSS, EXP) by grade.",
+  "description": "Suspension Rate reports the percentage of students who have received at least one sanction (ISS, OSS, EXP) during a school year, per grade.",
   "version": "1.0",
   "licenses": [{
     "url": "http://opendatacommons.org/licenses/pddl/",
@@ -21,7 +21,7 @@
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/suspension_rates_by_grade_2016.csv",
+    "path": "data/suspension_rates_by_grade_2017.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -73,7 +73,7 @@
       }
     }
   ],
-  "last_modified": "08/29/2017",
+  "last_modified": "05/18/18",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
@@ -82,7 +82,7 @@
     },
     "suppression": {
       "ckan_name": "Suppression",
-      "value": "Percentage values that correspond to observations of less than 5 have been suppressed.",
+      "value": "Disaggregations where either the numerator is less than 6 or the denominator is less than 20 are suppressed.",
       "type": "string"
     },
     "technical_notes": {
@@ -123,12 +123,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016"],
+      "value": ["2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016", "2016-2017"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2015-2016",
+      "value": "2016-2017",
       "type": "string"
     },
     "disabled_views": {
@@ -154,7 +154,7 @@
 			"value": {
 				"Measure Type": "Percent",
 		 		"District": "Connecticut",
-		 		"Year": ["2015-2016"],
+		 		"Year": ["2016-2017"],
 		 		"Variable": "Suspensions"
 			},
 		  	"type": "object"
@@ -205,7 +205,22 @@
         "number type": "float",
         "value": 0
       } 
-    }      
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "District": "Brooklyn School District",
+        "Year": "2016-2017",
+        "Variable": "Suspensions",
+        "Grade": "Grade 8",
+        "Measure Type": "Percent" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 9.9
+      } 
+    }       
   ],
   "dimension_groups": [
     {"Grade": ["Kindergarten", "Grade 1", "Grade 2", "Grade 3", 
