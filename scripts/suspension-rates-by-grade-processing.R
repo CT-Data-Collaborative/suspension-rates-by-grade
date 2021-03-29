@@ -73,7 +73,10 @@ years <- c("2009-2010",
            "2013-2014",
            "2014-2015",
            "2015-2016", 
-           "2016-2017")
+           "2016-2017",
+           "2017-2018",
+           "2018-2019",
+           "2019-2020")
 
 grade <- c("K", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 
@@ -143,7 +146,7 @@ complete_susp_rates_long <- complete_susp_rates_long %>%
 # Write to File
 write.table(
   complete_susp_rates_long,
-  file.path(path_to_top_level, "data", "suspension_rates_by_grade_2017.csv"),
+  file.path(path_to_top_level, "data", "suspension_rates_by_grade_2020.csv"),
   sep = ",",
   row.names = F
 )
